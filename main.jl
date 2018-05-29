@@ -3,10 +3,7 @@
 # rewritten in Julia by C Caggiano (2018)
 
 
-function read_files(file)
-  return readdlm(file)
-end
-
+include("utils.jl")
 
 function main()
 
@@ -19,6 +16,9 @@ function main()
   gwas_LD = read_files("LDgwas.txt")
   eqtl_LD = read_files("LDeqtl.txt")
 
+  sigma = make_positive_semidefinite(gwas_LD)
+  print(check_positive_definite(sigma))
+  
 end
 
 main()
