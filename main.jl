@@ -1,7 +1,11 @@
+# ecaviar GWAS/eqtl colocalization code
+# from Hormozdiari et al (2016)
+# rewritten in Julia by C Caggiano (2018)
 
-function read_files()
 
-
+function read_files(file)
+  return readdlm(file)
+end
 
 
 function main()
@@ -12,7 +16,9 @@ function main()
   casual_snp_number = 1
 
   # file names
-  gwas_LD = "LDgwas.txt"
-  eqtl_LD = "LDeqtl.txt"
+  gwas_LD = read_files("LDgwas.txt")
+  eqtl_LD = read_files("LDeqtl.txt")
 
 end
+
+main()
