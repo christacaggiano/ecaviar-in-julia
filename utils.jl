@@ -4,18 +4,17 @@
 using PositiveFactorizations
 
 function read_files(file)
-  return readdlm(file)
+    return readdlm(file)
 end
 
 function check_symmetric(matrix)
-  issymmetric(matrix)
+    issymmetric(matrix)
 end
 
 function make_positive_semidefinite(matrix)
-  eigfact(Positive, matrix)
-
+    cholfact(Positive, matrix)
 end
 
 function check_positive_definite(matrix)
-  return isposdef(matrix)
+    return isposdef(matrix)
 end

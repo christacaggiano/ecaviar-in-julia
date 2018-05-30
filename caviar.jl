@@ -1,23 +1,14 @@
 # caviar methods
 
-# type caviarModel
-#     rho::Float64
-#     non_centrality_parameter::Float64
-#     gamma::Float64
-#     snp_number::Int64
-#     casual_snp_number::Int64
-#     sigma::Float64
-#     probability_causal::AbstractString
-#     stat::Float64
-#     rank::Int64
-#
-#
-#
-#
-# 	PostCal * post;
-# 	string * snpNames;
-# 	string ldFile;
-#         string zFile;
-#         string outputFileName;
-#         string geneMapFile;
-# end
+function likelihood(casual_snp_number, total_snps)
+    total = 0
+
+    for i = 1:casual_snp_number
+        total += binomial(total_snps, i)
+    end
+
+    print(total)
+end
+
+likelihood(1, 50)
+likelihood(2, 50)
