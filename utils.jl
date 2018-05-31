@@ -3,8 +3,16 @@
 
 using PositiveFactorizations
 
-function read_files(file)
+function read_ld(file)
     return readdlm(file)
+end
+
+function read_zscores(file)
+    f = open(file)
+    for ln in eachline(f)
+        print(ln)
+    end
+    close(f)
 end
 
 function check_symmetric(matrix)
